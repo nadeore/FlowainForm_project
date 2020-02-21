@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
     <head>
@@ -15,10 +15,10 @@
         <link href="<?php echo site_url($this->config->item('theme_path')); ?>css/style.css" rel="stylesheet">
         
         <!-- Facebook Pixel Code -->
-        <script>
-        !function(f,b,e,v,n,t,s)
+<!--         <script>
+<!--         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)}; -->
         if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
         n.queue=[];t=b.createElement(e);t.async=!0;
         t.src=v;s=b.getElementsByTagName(e)[0];
@@ -35,14 +35,14 @@
         <!-- End Facebook Pixel Code -->
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149365319-1"></script>
+<!--         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149365319-1"></script> -->
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+//           window.dataLayer = window.dataLayer || [];
+//           function gtag(){dataLayer.push(arguments);}
+//           gtag('js', new Date());
         
-          gtag('config', 'UA-149365319-1');
-        </script>
+//           gtag('config', 'UA-149365319-1');
+        </script> -->
         <!--End of Global site tag (gtag.js) - Google Analytics-->
 <style>
     a.social_media {
@@ -142,65 +142,65 @@ a.social_media img {
 <script>
 
 
-window.fbAsyncInit = function() {
-    // FB JavaScript SDK configuration and setup
-    FB.init({
-      appId      : '498141807632948', // FB App ID
-      cookie     : true,  // enable cookies to allow the server to access the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.5' // use graph api version 2.8
-    });
+// window.fbAsyncInit = function() {
+//     // FB JavaScript SDK configuration and setup
+//     FB.init({
+//       appId      : '498141807632948', // FB App ID
+//       cookie     : true,  // enable cookies to allow the server to access the session
+//       xfbml      : true,  // parse social plugins on this page
+//       version    : 'v2.5' // use graph api version 2.8
+//     });
     
-    // Check whether the user already logged in
-    /*FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            //display user data
-            getFbUserData();
-        }
-    });*/
-};
+//     // Check whether the user already logged in
+//     /*FB.getLoginStatus(function(response) {
+//         if (response.status === 'connected') {
+//             //display user data
+//             getFbUserData();
+//         }
+//     });*/
+// };
 
 // Load the JavaScript SDK asynchronously
- (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+//  (function(d, s, id){
+//      var js, fjs = d.getElementsByTagName(s)[0];
+//      if (d.getElementById(id)) {return;}
+//      js = d.createElement(s); js.id = id;
+//      js.src = "https://connect.facebook.net/en_US/sdk.js";
+//      fjs.parentNode.insertBefore(js, fjs);
+//    }(document, 'script', 'facebook-jssdk'));
 
 // Facebook login with JavaScript SDK
-function fbLogin() {
-    FB.login(function (response) {
-        if (response.authResponse) {
-            // Get and display the user profile data
-            getFbUserData();
-        } else {
-            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
-        }
-    }, {scope: 'email'});
-}
+// function fbLogin() {
+//     FB.login(function (response) {
+//         if (response.authResponse) {
+//             // Get and display the user profile data
+//             getFbUserData();
+//         } else {
+//             document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+//         }
+//     }, {scope: 'email'});
+// }
 
 // Fetch the user profile data from facebook
-function getFbUserData(){
-	var array = [];
-    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-    function (response) {
-        //console.log(response);
-             saveUserData(response);
-    });
-}
+// function getFbUserData(){
+// 	var array = [];
+//     FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+//     function (response) {
+//         //console.log(response);
+//              saveUserData(response);
+//     });
+// }
 
-function saveUserData(userData){
-    $.post('<?php echo base_url(); ?>login/saveUserData', {'userData': userData}, function(data){
+// function saveUserData(userData){
+//     $.post('<?php echo base_url(); ?>login/saveUserData', {'userData': userData}, function(data){
     
-       if(data==1){
-          alert("Please verify your account first!");
-	      return false;
+//        if(data==1){
+//           alert("Please verify your account first!");
+// 	      return false;
 		 
-	  }else{
-	      window.location.href="<?php echo base_url();?>"+data;
-	  }
+// 	  }else{
+// 	      window.location.href="<?php echo base_url();?>"+data;
+// 	  }
    
       /*if(data==2){
 		  window.location.href="<?php echo base_url();?>home";
@@ -211,92 +211,92 @@ function saveUserData(userData){
 	      alert("Verfication email sent successfully.Please verify to login.");
 	      return false;
 	  }*/
-    });
-}
+//     });
+// }
 
-function validEmail(){
-   var vemail = $('#vemail').val();
-   var atpos = vemail.indexOf("@");
-   var dotpos = vemail.lastIndexOf(".");
-   if (atpos<1 || dotpos<atpos+2 || dotpos+2>=vemail.length) {
-    $('#eer_email').html("Not a valid e-mail address");
-    return false;
-   }else{
-        $('#eer_email').html("");
-   }
-}
+// function validEmail(){
+//    var vemail = $('#vemail').val();
+//    var atpos = vemail.indexOf("@");
+//    var dotpos = vemail.lastIndexOf(".");
+//    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=vemail.length) {
+//     $('#eer_email').html("Not a valid e-mail address");
+//     return false;
+//    }else{
+//         $('#eer_email').html("");
+//    }
+// }
 
-function logout()
-{
-    gapi.auth.signOut();
-    location.reload();
-}
+// function logout()
+// {
+//     gapi.auth.signOut();
+//     location.reload();
+// }
 
-function Login() 
-{
-  var myParams = {
-    'clientid' : '1089945789081-cj6cden9brkf9kegodhr956jnisb706g.apps.googleusercontent.com',
-    'cookiepolicy' : 'single_host_origin',
-    'callback' : 'loginCallback',
-    'approvalprompt':'force',
-    'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
-  };
-  gapi.auth.signIn(myParams);
-}
+// function Login() 
+// {
+//   var myParams = {
+//     'clientid' : '1089945789081-cj6cden9brkf9kegodhr956jnisb706g.apps.googleusercontent.com',
+//     'cookiepolicy' : 'single_host_origin',
+//     'callback' : 'loginCallback',
+//     'approvalprompt':'force',
+//     'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+//   };
+//   gapi.auth.signIn(myParams);
+// }
 
-function loginCallback(result)
-{
+// function loginCallback(result)
+// {
 
-    if(result['status']['signed_in'])
-    {
-        var request = gapi.client.plus.people.get(
-        {
-            'userId': 'me'
-        });
-        request.execute(function (resp)
-        { 
+//     if(result['status']['signed_in'])
+//     {
+//         var request = gapi.client.plus.people.get(
+//         {
+//             'userId': 'me'
+//         });
+//         request.execute(function (resp)
+//         { 
 	    
-            var email = '';
-            if(resp['emails'])
-            {
-                for(i = 0; i < resp['emails'].length; i++)
-                {
-                    if(resp['emails'][i]['type'] == 'account')
-                    {
-                        email = resp['emails'][i]['value'];
-                    }
-                }
-            }
+//             var email = '';
+//             if(resp['emails'])
+//             {
+//                 for(i = 0; i < resp['emails'].length; i++)
+//                 {
+//                     if(resp['emails'][i]['type'] == 'account')
+//                     {
+//                         email = resp['emails'][i]['value'];
+//                     }
+//                 }
+//             }
             
-            if(email!=''){
+//             if(email!=''){
 			
-			$.post("<?php echo base_url();?>login/email_check",{'email' : email}, function( data ) {
+// 			$.post("<?php echo base_url();?>login/email_check",{'email' : email}, function( data ) {
 			
-			  if(data==0){				
-				call_google(resp,email); //Call for signup a new user;
-			  }else{ 
+// 			  if(data==0){				
+// 				call_google(resp,email); //Call for signup a new user;
+// 			  }else{ 
 				
-				alert("* Email Id already Exists!");
-				return false;
-			  }	  
-			});     
-            }else{
-                alert("*Please try to login again!");
-				return false;
-            }
-        });
-		function call_google(resp,email){
+// 				alert("* Email Id already Exists!");
+// 				return false;
+// 			  }	  
+// 			});     
+//             }else{
+//                 alert("*Please try to login again!");
+// 				return false;
+//             }
+//         });
+// 		function call_google(resp,email){
 		    
 		    
-		     $.post('<?php echo base_url(); ?>login/saveUserData1', {'userData': resp,'email' : email}, function(data){
+// 		     $.post('<?php echo base_url(); ?>login/saveUserData1', {'userData': resp,'email' : email}, function(data){
 		     
-		          if(data==1){
-                      alert("Please verify your account first!");
-            	      return false;
+// 		          if(data==1){
+//                       alert("Please verify your account first!");
+//             	      return false;
             		 
-            	  }else{
-            	      window.location.href="<?php echo base_url();?>"+data;
-            	  }
+//             	  }else{
+//             	      window.location.href="<?php echo base_url();?>"+data;
+//             	  }
    
               /*if(data==2){
         		  window.location.href="<?php echo base_url();?>home";
@@ -312,20 +312,20 @@ function loginCallback(result)
 	} 
 }
 
-function onLoadCallback()
-{
-    gapi.client.setApiKey('AIzaSyBIkfxoDt8LKfC8PO0cQoOe_r5MLwpeqT8');
-    gapi.client.load('plus', 'v1',function(){});
-}
-</script>
-<script type="text/javascript">
-      (function() {
-       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-       po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-     })();
-</script>
+// function onLoadCallback()
+// {
+//     gapi.client.setApiKey('AIzaSyBIkfxoDt8LKfC8PO0cQoOe_r5MLwpeqT8');
+//     gapi.client.load('plus', 'v1',function(){});
+// }
+// </script>
+// <script type="text/javascript">
+//       (function() {
+//        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+//        po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+//        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+//      })();
+// </script>
 
     </body>
 
-</html>
+</html> -->
